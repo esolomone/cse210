@@ -8,19 +8,27 @@ class Program
     {   
         int number = -1;
         List<int> numbers = new List<int>();
+        Console.WriteLine("Enter a list of numbers, type 0 when finished. ");
         do
         {
-        Console.WriteLine("Enter a list of numbers, type 0 when finished. ");
         Console.Write("Enter number: ");
         number = int.Parse(Console.ReadLine());
         numbers.Add(number);
         } while (number != 0);
         int sum = 0;
+        int largestNumber = -10000;
         foreach (int num in numbers) 
         {
-            sum += number;
+            sum += num;
+            if (num > largestNumber)
+            {
+                largestNumber = num;
+            }
         }
-        Console.WriteLine($"The sum is {sum}.");
-
+  
+        float average = sum / (numbers.Count - 1);
+        Console.WriteLine($"The sum is {sum}");
+        Console.WriteLine($"The average is {average}");
+        Console.WriteLine($"The largest number is {largestNumber}");
     }
 }
